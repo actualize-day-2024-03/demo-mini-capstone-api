@@ -6,10 +6,10 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(
-      name: params[:input_name],
-      price: params[:input_price],
-      image_url: params[:input_image_url],
-      description: params[:input_description],
+      name: params[:name],
+      price: params[:price],
+      image_url: params[:image_url],
+      description: params[:description],
     )
     render :show
   end
