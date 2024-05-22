@@ -4,10 +4,10 @@ one:
   name: MyString
   price: 1
   description: MyString
-  image_url: MyString
+  supplier: one
 
 two:
   name: MyString
   price: 1
   description: MyString
-  image_url: MyString
+  supplier: one
