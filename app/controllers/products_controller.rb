@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.create!(
       name: params[:name],
-      price: params[:price],      
+      price: params[:price],
       description: params[:description],
       supplier_id: params[:supplier_id],
     )
