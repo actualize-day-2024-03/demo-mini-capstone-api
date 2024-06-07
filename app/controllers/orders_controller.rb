@@ -1,6 +1,8 @@
 class OrdersController < ApplicationController
   def index
-    @orders = Order.all
+    # alternate syntax not using has_many 
+    # @orders = Order.where(user_id: current_user.id)
+    @orders = current_user.orders
     render :index
   end
   
@@ -27,8 +29,15 @@ class OrdersController < ApplicationController
     end
 
     def show
+      # alternate syntax instead of if statement
+      # @order = Order.find_by(id: params[:id], user_id: current_user.id)
+
       @order = Order.find_by(id: params[:id])
-      render :show
+      if current_user.id == @order.user_id
+        render :show
+      else
+        render json: {}
+      end
     end
   
 end
