@@ -1,14 +1,20 @@
 class OrdersController < ApplicationController
   def create
     @order = Order.new(
-      product_id: 7, 
-      user_id: 3, 
-      quantity: 1, 
-      subtotal: 9, 
-      tax: 0.81, 
-      total: 9.81
-    )
-    @order.save
-    render :show
-  end
+      product_id: params[:product_id],
+      user_id: params[:user_id],
+      quantity: params[:quantity],
+      subtotal: params[:subtotal],
+      tax: params[:tax],
+      total: params[:total],
+      )
+      @order.save
+      render :show
+    end
+
+    def show
+      @order = Order.find_by(id: params[:id])
+      render :show
+    end
+  
 end
