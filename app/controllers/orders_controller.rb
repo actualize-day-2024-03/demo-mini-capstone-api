@@ -1,7 +1,9 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user
+  
   def index
     # alternate syntax not using has_many 
-    # @orders = Order.where(user_id: current_user.id)
+    # @orders = Order.where(user_id: current_user.id)    
     @orders = current_user.orders
     render :index
   end

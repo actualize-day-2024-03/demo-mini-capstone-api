@@ -5,20 +5,23 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  # authentication - who is using the app
+  # authorization - who is allowed to do what
+
   # Defines the root path route ("/")
   # root "posts#index"
-  get "/products" => "products#index"
-  post "/products" => "products#create"
-  get "/products/:id" => "products#show"
-  patch "/products/:id" => "products#update"
-  delete "/products/:id" => "products#destroy"
+  get "/products" => "products#index" # everyone
+  post "/products" => "products#create" # only admins
+  get "/products/:id" => "products#show" # everyone
+  patch "/products/:id" => "products#update" #only admins
+  delete "/products/:id" => "products#destroy" #only admins
 
-  post "/users" => "users#create"
-  post "/sessions" => "sessions#create"
+  post "/users" => "users#create" # everyone
+  post "/sessions" => "sessions#create" # everyone
 
-  get "/orders" => "orders#index"
-  post "/orders" => "orders#create"
-  get "/orders/:id" => "orders#show"
+  get "/orders" => "orders#index" # logged in
+  post "/orders" => "orders#create" # logged in
+  get "/orders/:id" => "orders#show" #logged in
 end
 
 # REST
