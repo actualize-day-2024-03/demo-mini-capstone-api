@@ -1,10 +1,9 @@
 class CartedProductsController < ApplicationController
   def create
     @carted_product = CartedProduct.new(
-      user_id: params[:user_id],
+      user_id: current_user.id,
       product_id: params[:product_id],
-      status: params[:status],
-      order_id: params[:order_id],
+      status: 'carted',
       quantity: params[:quantity],      
     )
     @carted_product.save
