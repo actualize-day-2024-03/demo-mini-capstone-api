@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get "/orders" => "orders#index" # logged in
   post "/orders" => "orders#create" # logged in
   get "/orders/:id" => "orders#show" #logged in
+
+  post "/carted_products" => "carted_products#create"
 end
 
 # REST
