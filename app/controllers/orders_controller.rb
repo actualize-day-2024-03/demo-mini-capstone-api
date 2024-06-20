@@ -33,6 +33,13 @@ class OrdersController < ApplicationController
       total: calculated_total
     )
     @order.save
+
+    carted_products.each do |cp|
+      cp.status = 'purchased'
+      cp.order_id = @order.id
+      cp.save
+    end
+
     render :show
   end
 
@@ -48,4 +55,5 @@ class OrdersController < ApplicationController
     end
   end
 
+  
 end
