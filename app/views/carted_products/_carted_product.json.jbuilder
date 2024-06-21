@@ -6,7 +6,6 @@ json.order_id carted_product.order_id
 json.quantity carted_product.quantity
 json.product carted_product.product
 
-
 # {/* what should the user see aboaut their shopping cart> */}
 # {/* each product */}
 # {/* each product's image */}
