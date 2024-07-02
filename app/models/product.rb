@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   # product only has 1 supplier
-  # belongs_to :supplier
+  belongs_to :supplier
   has_many :images
   has_many :orders
   has_many :category_products
