@@ -21,11 +21,13 @@ class ProductsController < ApplicationController
       supplier_id: params[:supplier_id],      
     )
     @product.save
-    image = Image.new(
-      url: params[:image],
-      product_id: @product.id
-    )
-    image.save
+    params[:images].each do |image_url|
+      image = Image.new(
+        url: image_url,
+        product_id: @product.id
+      )
+      image.save
+    end
     render :show   
   end
 
